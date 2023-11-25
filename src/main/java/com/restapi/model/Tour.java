@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -23,16 +24,11 @@ public class Tour {
     @JoinColumn(name = "cruise_id",referencedColumnName = "id")
     private Cruise cruise;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "user_id",referencedColumnName = "id")
-    private AppUser appUser;
-
     private Double price;
 
-    private LocalDate CheckInDate;
+    private String CheckInDate;
 
-    private LocalDate CheckOutDate;
+    private String CheckOutDate;
 
     private String destination;
 

@@ -1,5 +1,6 @@
 package com.restapi.request;
 
+import com.restapi.model.AppUser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +22,12 @@ public class PaymentRequest {
     @NotNull(message = "Amount cannot be null")
     private Double amount;
 
-    @NotNull(message = "Payment method cannot be null")
-    private String paymentMethod;
+    private Long userId;
+
+    private String cardHolderName;
+    private String cardNumber;
+    private String expiryDate;
+    private String cvc;
 
     private Long bookingId;
 }

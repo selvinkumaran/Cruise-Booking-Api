@@ -12,5 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 public class UserResponse {
-    private List<UserRequest> userRequestList = new ArrayList<>();
-}
+    private Long id;
+    private String username;
+    private String name;
+    private String role;}

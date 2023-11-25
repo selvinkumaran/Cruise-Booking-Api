@@ -56,8 +56,12 @@ public class FeedbackService {
         return findAll();
     }
 
-    public Feedback findFeedbackById(Long id) {
-        return feedbackRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("feedback", "id", id));
+//    public Feedback findFeedbackById(Long id) {
+//        return feedbackRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("feedback", "id", id));
+//    }
+
+    public List<Feedback> getFeedbackByUserId(Long userId) {
+        return feedbackRepository.findByAppUser_Id(userId);
     }
 }

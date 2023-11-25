@@ -24,9 +24,9 @@ public class CruiseRequest {
     @Size(max = 1000, message = "Description should not exceed 1000 characters")
     private String description;
 
-    @NotNull(message = "Photo cannot be null")
+//    @NotNull(message = "Photo cannot be null")
     private byte[] photo;
 
+    @Min(value = 0, message = "Capacity should not be less than 0")
     private int capacity;
-
 }

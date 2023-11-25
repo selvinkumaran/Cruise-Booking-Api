@@ -50,8 +50,11 @@ public class UserService {
         return authDto.mapToAuthResponse(appUser);
     }
 
-    public UserResponse findAll() {
-        List<AppUser> appUserList = userRepository.findAll();
-        return userDto.mapToUserResponse(appUserList);
+    public List<AppUser> findAll() {
+        return userRepository.findAll();
+    }
+
+    public long getTotalUserCount() {
+        return userRepository.countAllUsers();
     }
 }

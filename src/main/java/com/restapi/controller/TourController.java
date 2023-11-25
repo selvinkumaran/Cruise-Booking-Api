@@ -2,6 +2,7 @@ package com.restapi.controller;
 
 import com.restapi.model.Role;
 import com.restapi.model.Tour;
+import com.restapi.response.TourResponse;
 import com.restapi.response.common.APIResponse;
 import com.restapi.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,14 @@ public class TourController {
         List<Tour> tourList = tourService.findAll();
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(tourList);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/cruise/{cruiseId}")
+    public ResponseEntity<APIResponse> getTourByCruiseId(@PathVariable Long cruiseId) {
+        List<TourResponse> tourResponseList = tourService.getTourByCruiseId(cruiseId);
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setData(tourResponseList);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 

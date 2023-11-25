@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.lang.Nullable;
@@ -41,8 +42,8 @@ public class Cruise {
     private LocalDateTime createAt;
 
     private int capacity;
-
-    @OneToMany(mappedBy = "cruise")
+    @JsonIgnore
+    @OneToMany(mappedBy = "cruise",cascade = CascadeType.ALL)
     private List<Tour> tour;
 
 }

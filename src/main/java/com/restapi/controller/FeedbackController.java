@@ -26,11 +26,11 @@ public class FeedbackController {
     @Autowired
     private FeedbackService feedbackService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<APIResponse> getFeedbackDetails(@PathVariable Long id) {
-        Feedback feedback = feedbackService.findFeedbackById(id);
+    @GetMapping("/{userId}")
+    public ResponseEntity<APIResponse> getFeedbackDetails(@PathVariable Long userId) {
+        List<Feedback> feedbackList = feedbackService.getFeedbackByUserId(userId);
         apiResponse.setStatus(HttpStatus.OK.value());
-        apiResponse.setData(feedback);
+        apiResponse.setData(feedbackList);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 

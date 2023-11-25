@@ -24,6 +24,14 @@ public class AdminTourController {
     @Autowired
     private TourService tourService;
 
+    @GetMapping("/all")
+    public ResponseEntity<APIResponse> getAllTours() {
+        List<Tour> tourList = tourService.findAll();
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setData(tourList);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
     @GetMapping("/{tourId}")
     public ResponseEntity<APIResponse> getTourDetails(@PathVariable Long tourId) {
         Tour tour = tourService.findTourById(tourId);

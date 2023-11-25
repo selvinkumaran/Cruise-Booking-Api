@@ -19,14 +19,18 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @JsonIgnore
-    @OneToOne
-    @JoinColumn(name = "booking_id")
-    private Booking booking;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private AppUser appUser;
+
+    private String cardHolderName;
+    private String cardNumber;
+    private String expiryDate;
+    private String cvc;
 
     private Double amount;
-
-    private String paymentMethod;
 
     @CreationTimestamp
     @Column(updatable = false)

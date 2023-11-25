@@ -2,10 +2,12 @@ package com.restapi.service;
 
 import com.restapi.dto.PaymentDto;
 import com.restapi.exception.common.ResourceNotFoundException;
+import com.restapi.model.AppUser;
 import com.restapi.model.Booking;
 import com.restapi.model.Payment;
 import com.restapi.repository.BookingRepository;
 import com.restapi.repository.PaymentRepository;
+import com.restapi.repository.UserRepository;
 import com.restapi.request.PaymentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,9 @@ public class PaymentService {
     @Autowired
     private BookingRepository bookingRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public Payment findPaymentById(Long id) {
         return paymentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Payment", "id", id));
@@ -32,7 +37,7 @@ public class PaymentService {
 
     public List<Payment> create(PaymentRequest paymentRequest) {
         Payment payment = paymentDto.mapToPayment(paymentRequest);
-        associateBooking(payment, paymentRequest.getBookingId());
+        associateBooking(payment,paymentRequest.getUserId());
         paymentRepository.save(payment);
         return findAll();
     }
@@ -42,10 +47,10 @@ public class PaymentService {
     }
 
     @Transactional
-    private void associateBooking(Payment payment, Long bookingId) {
-        Booking booking = bookingRepository.findById(bookingId)
-                .orElseThrow(() -> new ResourceNotFoundException("Booking", "bookingId", bookingId));
-        payment.setBooking(booking);
+    private void associateBooking(Payment payment,Long userId) {
+        AppUser appUser = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("AppUser", "userId", userId));
+        payment.setAppUser(appUser);
     }
 }
 

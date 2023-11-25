@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FeedbackDto {
-    public Feedback mapToFeedback(FeedbackRequest feedbackRequest) {
+    public Feedback  mapToFeedback(FeedbackRequest feedbackRequest) {
         Feedback feedback = new Feedback();
         if (feedbackRequest.getId() != null) {
             feedback.setId(feedbackRequest.getId());

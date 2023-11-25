@@ -43,13 +43,11 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         Role userRole = createRoleIfNotFound(Role.USER);
         Role adminRole = createRoleIfNotFound(Role.ADMIN);
 //        Create user
-        createUserIfNotFound("user", "user", userRole);
-        createUserIfNotFound("admin", "admin", adminRole);
+        createUserIfNotFound("selvin@gmail.com", "Selvin@2001", userRole);
+        createUserIfNotFound("admin@gmail.com", "Admin@2001", adminRole);
 //        Create Booking Status
-        createStatus("Pending");
-        createStatus("Out for Delivery");
         createStatus("Confirmed");
-        createStatus("Delivered");
+        createStatus("Cancelled");
 
         alreadySetup = true;
     }

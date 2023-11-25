@@ -10,8 +10,10 @@ public class PaymentDto {
         Payment payment = new Payment();
         payment.setId(payment.getId());
         payment.setAmount(paymentRequest.getAmount());
-        payment.setPaymentMethod(paymentRequest.getPaymentMethod());
-
+        payment.setCardHolderName(paymentRequest.getCardHolderName());
+        payment.setCardNumber(paymentRequest.getCardNumber());
+        payment.setCvc(paymentRequest.getCvc());
+        payment.setExpiryDate(paymentRequest.getExpiryDate());
         return payment;
     }
 }

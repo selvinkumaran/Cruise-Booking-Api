@@ -23,11 +23,19 @@ public class Booking {
     @JoinColumn(name = "user_id")
     private AppUser appUser;
 
+    @ManyToOne
+    @JoinColumn(name = "paymentId")
+    private Payment payment;
+
+    @ManyToOne
+    @JoinColumn(name = "tourId")
+    private Tour tour;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime bookingDate;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "status_id", referencedColumnName = "id")
     private BookingStatus bookingStatus;
 }
