@@ -9,5 +9,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class PaymentResponse {
+
     List<Payment> paymentList;
 }

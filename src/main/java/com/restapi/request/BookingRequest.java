@@ -15,4 +15,9 @@ public class BookingRequest {
 
     @NotNull(message = "User ID cannot be null")
     private Long userId;
+
+    private Long paymentId;
+
+    private Long tourId;
+
 }

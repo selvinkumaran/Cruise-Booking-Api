@@ -2,13 +2,8 @@ package com.restapi.service;
 
 import com.restapi.dto.BookingDto;
 import com.restapi.exception.common.ResourceNotFoundException;
-import com.restapi.model.AppUser;
-import com.restapi.model.Booking;
-import com.restapi.model.BookingStatus;
-import com.restapi.repository.BookingRepository;
-import com.restapi.repository.BookingStatusRepository;
-import com.restapi.repository.TourRepository;
-import com.restapi.repository.UserRepository;
+import com.restapi.model.*;
+import com.restapi.repository.*;
 import com.restapi.request.BookingRequest;
 import com.restapi.response.BookingResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +22,10 @@ public class BookingService {
 
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
+    @Autowired
+    private TourRepository tourRepository;
 
     @Autowired
     private BookingStatusRepository bookingStatusRepository;
@@ -35,6 +34,10 @@ public class BookingService {
     public List<BookingResponse> booking(BookingRequest bookingRequest) {
         AppUser appUser = userRepository.findById(bookingRequest.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", bookingRequest.getUserId()));
+        Payment payment = paymentRepository.findById(bookingRequest.getPaymentId())
+                .orElseThrow(() -> new ResourceNotFoundException("paymentId", "paymentId", bookingRequest.getPaymentId()));
+        Tour tour = tourRepository.findById(bookingRequest.getTourId())
+                .orElseThrow(() -> new ResourceNotFoundException("tourId", "tourId", bookingRequest.getTourId()));
 
         BookingStatus bookingStatus = bookingStatusRepository.findById(1L)
                 .orElseThrow(() ->
@@ -42,6 +45,8 @@ public class BookingService {
 
         Booking booking = new Booking();
         booking.setAppUser(appUser);
+        booking.setTour(tour);
+        booking.setPayment(payment);
         booking.setBookingStatus(bookingStatus);
 
         bookingRepository.save(booking);

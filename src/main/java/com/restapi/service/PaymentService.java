@@ -9,6 +9,7 @@ import com.restapi.repository.BookingRepository;
 import com.restapi.repository.PaymentRepository;
 import com.restapi.repository.UserRepository;
 import com.restapi.request.PaymentRequest;
+import com.restapi.response.common.ErrorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,10 @@ public class PaymentService {
         AppUser appUser = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("AppUser", "userId", userId));
         payment.setAppUser(appUser);
+    }
+    public Payment getLatestPayment() {
+        return paymentRepository.findFirstByOrderByIdDesc()
+                .orElseThrow();
     }
 }
 

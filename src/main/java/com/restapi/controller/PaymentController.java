@@ -33,6 +33,14 @@ public class PaymentController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/latest")
+    public ResponseEntity<APIResponse> getLatestPayment() {
+        Payment latestPayment = paymentService.getLatestPayment();
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setData(latestPayment);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<APIResponse> createPayment(@Valid @RequestBody PaymentRequest paymentRequest) {
         List<Payment> paymentList = paymentService.create(paymentRequest);
