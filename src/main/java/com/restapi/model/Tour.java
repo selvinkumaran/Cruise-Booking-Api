@@ -21,7 +21,7 @@ public class Tour {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cruise_id",referencedColumnName = "id")
+    @JoinColumn(name = "cruise_id", referencedColumnName = "id")
     private Cruise cruise;
 
     private Double price;

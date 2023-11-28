@@ -33,9 +33,7 @@ public class Cruise {
     @Column(nullable = false, length = 200)
     private String description;
 
-    @Lob
-    @Column(name = "photo", columnDefinition = "BLOB")
-    private byte[] photo;
+    private String photo;
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -45,5 +43,4 @@ public class Cruise {
     @JsonIgnore
     @OneToMany(mappedBy = "cruise",cascade = CascadeType.ALL)
     private List<Tour> tour;
-
 }

@@ -4,6 +4,8 @@ import com.restapi.model.Cruise;
 import com.restapi.request.CruiseRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 public class CruiseDto {
 

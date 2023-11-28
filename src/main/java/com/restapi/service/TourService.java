@@ -91,7 +91,7 @@ public class TourService {
         tourResponse.setCruiseId(tourResponse.getCruiseId());
         tourResponse.setCruiseId(tour.getCruise().getId());
         tourResponse.setCruiseDescription(tour.getCruise().getDescription());
-        tourResponse.setCruisePhoto(Arrays.toString(tour.getCruise().getPhoto()));
+        tourResponse.setCruisePhoto(tour.getCruise().getPhoto());
         return tourResponse;
     }
 
