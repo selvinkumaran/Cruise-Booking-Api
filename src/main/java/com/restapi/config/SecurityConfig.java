@@ -54,7 +54,7 @@ public class SecurityConfig {
                 .permitAll()
                 .antMatchers("/swagger-ui/**")
                 .permitAll()
-                .antMatchers("/api/downloadFile/**")
+                .antMatchers("/api/admin/cruises/downloadFile/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

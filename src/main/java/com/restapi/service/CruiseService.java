@@ -6,8 +6,11 @@ import com.restapi.model.Cruise;
 import com.restapi.repository.CruiseRepository;
 import com.restapi.request.CruiseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -16,6 +19,9 @@ public class CruiseService {
     private CruiseRepository cruiseRepository;
     @Autowired
     private CruiseDto cruiseDto;
+
+    @Autowired
+    private StorageService storageService;
 
     public List<Cruise> findAll() {
         return cruiseRepository.findAll();
@@ -43,4 +49,12 @@ public class CruiseService {
                 .orElseThrow(() -> new ResourceNotFoundException("cruise", "id", id));
     }
 
+    public File getFile(Long id) throws IOException {
+        Cruise cruise = cruiseRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("id", "id", id));
+
+        Resource resource = storageService.loadFileAsResource(cruise.getPhoto());
+
+        return resource.getFile();
+    }
 }
