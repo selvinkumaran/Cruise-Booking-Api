@@ -3,13 +3,11 @@ package com.restapi.service;
 import com.restapi.dto.PaymentDto;
 import com.restapi.exception.common.ResourceNotFoundException;
 import com.restapi.model.AppUser;
-import com.restapi.model.Booking;
 import com.restapi.model.Payment;
 import com.restapi.repository.BookingRepository;
 import com.restapi.repository.PaymentRepository;
 import com.restapi.repository.UserRepository;
 import com.restapi.request.PaymentRequest;
-import com.restapi.response.common.ErrorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,5 +55,6 @@ public class PaymentService {
         return paymentRepository.findFirstByOrderByIdDesc()
                 .orElseThrow();
     }
+
 }
 

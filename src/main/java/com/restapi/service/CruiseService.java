@@ -15,8 +15,10 @@ import java.util.List;
 
 @Service
 public class CruiseService {
+
     @Autowired
     private CruiseRepository cruiseRepository;
+
     @Autowired
     private CruiseDto cruiseDto;
 
@@ -57,4 +59,5 @@ public class CruiseService {
 
         return resource.getFile();
     }
+
 }

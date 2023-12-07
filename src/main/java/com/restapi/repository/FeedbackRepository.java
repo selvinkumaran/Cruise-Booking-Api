@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback,Long> {
     List<Feedback> findByAppUser_Id(Long userId);
+
 }

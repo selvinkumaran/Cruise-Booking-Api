@@ -13,6 +13,7 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 public class CruiseRequest {
 
+
     @PositiveOrZero(message = "Id should be a positive number or zero")
     private Long id;
 
@@ -24,9 +25,10 @@ public class CruiseRequest {
     @Size(max = 1000, message = "Description should not exceed 1000 characters")
     private String description;
 
-    //    @NotNull(message = "Photo cannot be null")
+    @NotNull(message = "Photo cannot be null")
     private String photo;
 
     @Min(value = 0, message = "Capacity should not be less than 0")
     private int capacity;
+
 }

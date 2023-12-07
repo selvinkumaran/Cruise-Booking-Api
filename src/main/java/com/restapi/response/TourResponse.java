@@ -1,13 +1,9 @@
 package com.restapi.response;
 
-import com.restapi.model.Tour;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.validation.constraints.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -36,4 +32,5 @@ public class TourResponse {
     private String destination;
 
     private int balance;
+
 }

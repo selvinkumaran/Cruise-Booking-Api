@@ -11,4 +11,5 @@ import java.util.List;
 public class PaymentResponse {
 
     List<Payment> paymentList;
+
 }

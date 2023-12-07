@@ -36,4 +36,5 @@ public class BookingStatus {
     public BookingStatus(String status) {
         this.status = status;
     }
+
 }

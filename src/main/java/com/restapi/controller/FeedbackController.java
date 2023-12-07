@@ -3,7 +3,6 @@ package com.restapi.controller;
 import com.restapi.model.Feedback;
 import com.restapi.model.Role;
 import com.restapi.request.FeedbackRequest;
-import com.restapi.response.FeedbackResponse;
 import com.restapi.response.common.APIResponse;
 import com.restapi.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +59,14 @@ public class FeedbackController {
         apiResponse.setData(feedbackList);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{userId}/{id}")
+    public ResponseEntity<APIResponse> deleteFeedback(@PathVariable Long userId, @PathVariable Long id) {
+        List<Feedback> feedbackList = feedbackService.deleteById(id, userId);
+        apiResponse.setStatus(HttpStatus.OK.value());
+        apiResponse.setData(feedbackList);
+        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
 
 }

@@ -3,9 +3,7 @@ package com.restapi.service;
 import com.restapi.dto.FeedbackDto;
 import com.restapi.exception.common.ResourceNotFoundException;
 import com.restapi.model.AppUser;
-import com.restapi.model.Cruise;
 import com.restapi.model.Feedback;
-import com.restapi.model.Tour;
 import com.restapi.repository.FeedbackRepository;
 import com.restapi.repository.UserRepository;
 import com.restapi.request.FeedbackRequest;
@@ -56,12 +54,14 @@ public class FeedbackService {
         return findAll();
     }
 
-//    public Feedback findFeedbackById(Long id) {
-//        return feedbackRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("feedback", "id", id));
-//    }
+    public List<Feedback> deleteById(Long id, Long userId) {
+        feedbackRepository.deleteById(id);
+        return getFeedbackByUserId(userId); // Fetch feedbacks for the specific userId
+    }
+
 
     public List<Feedback> getFeedbackByUserId(Long userId) {
         return feedbackRepository.findByAppUser_Id(userId);
     }
+
 }

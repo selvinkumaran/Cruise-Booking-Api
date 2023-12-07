@@ -21,8 +21,10 @@ public class Feedback {
     @JoinColumn(name = "user_id")
     private AppUser appUser;
 
+    @Column(nullable = false)
     private int rating;
 
+    @Column(nullable = false, length = 100)
     private String comments;
 
 }

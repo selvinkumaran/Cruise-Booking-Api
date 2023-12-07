@@ -5,10 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,15 +29,14 @@ public class AppUser {
 
     @Column(nullable = false, length = 100)
     private String name;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role roles;
 
-
     @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL)
     private List<Payment> paymentList;
-
 
     @CreationTimestamp
     @Column(updatable = false)

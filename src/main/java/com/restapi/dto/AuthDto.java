@@ -5,8 +5,6 @@ import com.restapi.request.RegisterRequest;
 import com.restapi.response.AuthResponse;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class AuthDto {
 
@@ -17,7 +15,6 @@ public class AuthDto {
         appUser.setPassword(user.getPassword());
         return appUser;
     }
-
 
     public AuthResponse mapToAuthResponse(AppUser appUser) {
         AuthResponse authResponse = new AuthResponse();

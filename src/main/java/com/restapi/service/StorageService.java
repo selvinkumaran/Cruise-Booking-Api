@@ -68,7 +68,7 @@ public class StorageService {
             Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());
             if (resource.exists()) {
-                System.out.println("Result");
+                System.out.println  ("Result");
                 return resource;
             } else {
                 throw new RuntimeException("File not found " + fileName);

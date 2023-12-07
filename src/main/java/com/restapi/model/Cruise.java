@@ -5,15 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -39,8 +34,11 @@ public class Cruise {
     @Column(updatable = false)
     private LocalDateTime createAt;
 
+    @Column(nullable = false)
     private int capacity;
+
     @JsonIgnore
     @OneToMany(mappedBy = "cruise",cascade = CascadeType.ALL)
     private List<Tour> tour;
+
 }

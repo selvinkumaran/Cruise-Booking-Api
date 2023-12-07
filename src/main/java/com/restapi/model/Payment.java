@@ -26,8 +26,11 @@ public class Payment {
     private AppUser appUser;
 
     private String cardHolderName;
+
     private String cardNumber;
+
     private String expiryDate;
+
     private String cvc;
 
     private Double amount;

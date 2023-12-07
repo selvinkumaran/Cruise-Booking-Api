@@ -1,7 +1,6 @@
 package com.restapi.service;
 
 import com.restapi.dto.AuthDto;
-import com.restapi.dto.UserDto;
 import com.restapi.exception.common.InvalidUserException;
 import com.restapi.model.AppUser;
 import com.restapi.model.Role;
@@ -10,7 +9,6 @@ import com.restapi.repository.UserRepository;
 import com.restapi.request.LoginRequest;
 import com.restapi.request.RegisterRequest;
 import com.restapi.response.AuthResponse;
-import com.restapi.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,12 +20,13 @@ public class UserService {
 
     @Autowired
     private AuthDto authDto;
-    @Autowired
-    private UserDto userDto;
+
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private RoleRepository roleRepository;
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -57,4 +56,5 @@ public class UserService {
     public long getTotalUserCount() {
         return userRepository.countAllUsers();
     }
+
 }

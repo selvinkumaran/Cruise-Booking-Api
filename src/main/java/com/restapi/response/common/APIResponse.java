@@ -16,10 +16,14 @@ import java.time.LocalDateTime;
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class APIResponse {
+
     private Integer status;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime timestamp;
+
     private Object data;
+
     private ErrorResponse error;
 
     public APIResponse() {

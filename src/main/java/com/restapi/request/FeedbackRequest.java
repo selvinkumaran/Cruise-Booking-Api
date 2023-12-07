@@ -17,13 +17,15 @@ public class FeedbackRequest {
     private Long id;
 
     @Min(value = 1, message = "Rating should be at least 1")
-    @Max(value = 5, message = "Rating should not exceed 5")
+    @Max(value = 10, message = "Rating should not exceed 10")
     private int rating;
 
     @NotBlank(message = "Comments cannot be blank")
     @Size(max = 255, message = "Comments should not exceed 255 characters")
     private String comments;
 
+    @NotNull(message = "User ID cannot be null")
+    @Positive(message = "User ID must be a positive number")
     private Long userId;
 
 }

@@ -3,7 +3,6 @@ package com.restapi.controller.admin;
 
 import com.restapi.model.Feedback;
 import com.restapi.model.Role;
-import com.restapi.model.Tour;
 import com.restapi.response.common.APIResponse;
 import com.restapi.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,7 @@ public class AdminFeedbackController {
 
     @Autowired
     private FeedbackService feedbackService;
+
     @GetMapping("/all")
     public ResponseEntity<APIResponse> getAllFeedback() {
         List<Feedback> feedbackList = feedbackService.findAll();

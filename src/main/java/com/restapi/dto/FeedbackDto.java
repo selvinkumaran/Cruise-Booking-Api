@@ -1,8 +1,6 @@
 package com.restapi.dto;
 
-import com.restapi.model.Cruise;
 import com.restapi.model.Feedback;
-import com.restapi.request.CruiseRequest;
 import com.restapi.request.FeedbackRequest;
 import org.springframework.stereotype.Component;
 

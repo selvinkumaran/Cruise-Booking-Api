@@ -34,4 +34,5 @@ public class BookingResponse {
     private String paymentDate;
 
     private String amount;
+
 }
