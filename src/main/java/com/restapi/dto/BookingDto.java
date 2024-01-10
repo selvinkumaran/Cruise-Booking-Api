@@ -20,7 +20,6 @@ public class BookingDto {
                 bookingResponse.setBookingDate(String.valueOf(booking.getBookingDate()));
             }
 
-
             // Check if AppUser and Tour are not null before accessing their properties
             if (booking.getAppUser() != null) {
                 bookingResponse.setUserId(booking.getAppUser().getId());
@@ -37,6 +36,7 @@ public class BookingDto {
 
                 // Check if Cruise is not null before accessing its properties
                 if (booking.getTour().getCruise() != null) {
+                    bookingResponse.setId(booking.getTour().getCruise().getId());
                     bookingResponse.setCruiseName(booking.getTour().getCruise().getName());
                 }
 

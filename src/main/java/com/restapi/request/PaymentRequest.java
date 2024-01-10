@@ -37,8 +37,4 @@ public class PaymentRequest {
     @Size(min = 3, max = 3, message = "CVC should be a 3-digit number")
     private String cvc;
 
-    @PositiveOrZero(message = "Id should be a positive number or zero")
-    @NotNull(message = "Booking ID cannot be null")
-    private Long bookingId;
-
 }

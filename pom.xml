@@ -8,7 +8,7 @@
 		<version>2.7.17</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.codewithashith</groupId>
+	<groupId>com.codewithselvin</groupId>
 	<artifactId>Spring-Boot-Rest-API-Starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring-Boot-Rest-API-Starter</name>

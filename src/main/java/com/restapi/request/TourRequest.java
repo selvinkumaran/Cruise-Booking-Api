@@ -24,11 +24,9 @@ public class TourRequest {
     private Double price;
 
     @NotNull(message = "Check-in date cannot be null")
-    @FutureOrPresent(message = "Check-in date should be present or in the future")
     private String checkInDate;
 
     @NotNull(message = "Check-out date cannot be null")
-    @Future(message = "Check-out date should be in the future")
     private String checkOutDate;
 
     @NotBlank(message = "Destination cannot be blank")
