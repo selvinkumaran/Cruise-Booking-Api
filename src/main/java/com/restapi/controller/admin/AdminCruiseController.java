@@ -90,6 +90,7 @@ public class AdminCruiseController {
     @DeleteMapping("/{id}")
     public ResponseEntity<APIResponse> deleteCruise(@PathVariable Long id) {
         List<Cruise> cruiseResponse = cruiseService.deleteById(id);
+
         apiResponse.setStatus(HttpStatus.OK.value());
         apiResponse.setData(cruiseResponse);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
